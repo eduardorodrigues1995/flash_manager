@@ -134,31 +134,31 @@
   <form id="formEmpresa" method="POST" enctype="multipart/form-data">
   <h5 style="border-bottom: 1px solid gray">Dados da Empresa</h5>
   <div class="form-field">
-    <input type="text" id="cliente_empresa_cnpj" autocomplete="off"  placeholder="CNPJ" class="validate" required />
-    <input type="text" id="cliente_empresa_razao_social"  placeholder="Razão Social" class="validate" required />
-    <input type="text" id="situaçãocnpj" placeholder="Situação CNPJ" class="validate" required />
+    <input type="text" id="cliente_empresa_cnpj" autocomplete="off" placeholder="CNPJ" class="validate" name="cliente_empresa_cnpj" required />
+    <input type="text" id="cliente_empresa_razao_social" placeholder="Razão Social" class="validate" name="cliente_empresa_razao_social" required />
+    <input type="text" id="situaçãocnpj" placeholder="Situação CNPJ" class="validate" name="situacao_cnpj" required />
   </div>
   <div class="form-field">
-    <input type="date" id="cliente_empresa_data_abertura" />
-    <input type="text" id="cliente_empresa_natureza_juridica"  placeholder="Natureza Jurídica" class="validate" required />
-    <input type="number" id="cliente_empresa_capital_social"  placeholder="Capital Social" class="validate" required />
+    <input type="date" id="cliente_empresa_data_abertura" name="cliente_empresa_data_abertura" />
+    <input type="text" id="cliente_empresa_natureza_juridica" placeholder="Natureza Jurídica" class="validate" name="cliente_empresa_natureza_juridica" required />
+    <input type="number" id="cliente_empresa_capital_social" placeholder="Capital Social" class="validate" name="cliente_empresa_capital_social" required />
   </div>
   <div class="form-field">
-    <input type="text" id="cliente_empresa_telefone" placeholder="Telefone" onkeyup="formatPhone(this)" class="validate" required />
-    <input type="text" id="cliente_empresa_email"  placeholder="E-mail" class="validate" required />
-    <input type="text" id="cliente_empresa_Instagram" placeholder="Instagram" onblur="addAtSymbol('cliente_empresa_Instagram')" class="validate" required />
+    <input type="text" id="cliente_empresa_telefone" placeholder="Telefone" onkeyup="formatPhone(this)" class="validate" name="cliente_empresa_telefone" required />
+    <input type="text" id="cliente_empresa_email" placeholder="E-mail" class="validate" name="cliente_empresa_email" required />
+    <input type="text" id="cliente_empresa_Instagram" placeholder="Instagram" onblur="addAtSymbol('cliente_empresa_Instagram')" class="validate" name="cliente_empresa_instagram" required />
   </div>
   <div class="form-field">
-    <input type="text" id="cliente_empresa_rua"  placeholder="Rua" class="validate" required />
-    <input type="text" id="cliente_empresa_n_complemento"  placeholder="N° / Complemento" class="validate" required />
-    <input type="text" id="cliente_empresa_bairro"  placeholder="Bairro" class="validate" required />
+    <input type="text" id="cliente_empresa_rua" placeholder="Rua" class="validate" name="cliente_empresa_rua" required />
+    <input type="text" id="cliente_empresa_n_complemento" placeholder="N° / Complemento" class="validate" name="cliente_empresa_n_complemento" required />
+    <input type="text" id="cliente_empresa_bairro" placeholder="Bairro" class="validate" name="cliente_empresa_bairro" required />
   </div>
   <div class="form-field">
-    <input type="text" id="cliente_empresa_uf"  placeholder="UF" class="validate" required />
-    <input type="text" id="cliente_empresa_cidade"  placeholder="Cidade" class="validate" required />
-    <input type="text" id="cliente_empresa_cep"  placeholder="CEP" onkeyup="formatCEP(this)" class="validate" required />
+    <input type="text" id="cliente_empresa_uf" placeholder="UF" class="validate" name="cliente_empresa_uf" required />
+    <input type="text" id="cliente_empresa_cidade" placeholder="Cidade" class="validate" name="cliente_empresa_cidade" required />
+    <input type="text" id="cliente_empresa_cep" placeholder="CEP" onkeyup="formatCEP(this)" class="validate" name="cliente_empresa_cep" required />
   </div>
-</div>
+  <button type="submit">Cadastrar</button>
 </form>
 <div class="form-field">
   <button id="enviarFormularios" type="button">Enviar</button>
