@@ -38,10 +38,14 @@ document.getElementById("enviarFormularios").addEventListener("click", function(
     body: formDataEmpresa,
   })
     .then(function(response) {
-      return response.json();
+      return response.text(); // Altera a resposta para um texto em vez de um JSON
     })
     .then(function(data) {
-      console.log("Formulário Empresa enviado com sucesso:", data);
+      console.log("Resposta da requisição:", data); // Imprime o conteúdo da resposta
+      return JSON.parse(data); // Tenta transformar o conteúdo em um JSON
+    })
+    .then(function(json) {
+      console.log("JSON obtido com sucesso:", json);
     })
     .catch(function(error) {
       console.error("Erro ao enviar o formulário Empresa:", error);

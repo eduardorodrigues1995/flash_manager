@@ -68,3 +68,4 @@ if ($stmt->execute()) {
   // Registrar mensagem de log
   error_log("Erro ao inserir registro na tabela pessoa_juridica: " . $stmt->errorInfo()[2]);
 }
+}
