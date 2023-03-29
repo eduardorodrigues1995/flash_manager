@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Estúdio Fotográfico</title>
+    <link rel="stylesheet" href="../../../CSS/style.css">
+	<link rel="stylesheet" href="../../../css/formulario.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<body>
+    <header>
+        <div id="header-container"></div>
+    </header>
+    <main>
+<div class="form-field">
+<button id="btn-cadastrar">Cadastrar</button>
+<button id="btn-consulta">Consulta</button>
+</div>
+<br>
+
+<form>
+<h1>Cadastro de Clientes</h1>
+<div class="form-container form-field">
+  <div class="radio-buttons" style="display: flex; align-items: center;">
+<input type="radio" name="TIPOPS" id="cnpj_fleg" value="cnpj" onclick="mostrarOcultarCampos(this.value)">
+    <label for="cnpj_fleg" style="margin-right: 5px">CNPJ</label>
+<input type="radio" name="TIPOPS" id="cpf_fleg" value="cpf" checked onclick="mostrarOcultarCampos(this.value)">
+    <label for="cpf_fleg">CPF </label>
+  </div>
+  </div>
+  </form>
+  <form id="formPessoaFisica" method="POST" enctype="multipart/form-data">
+  <h5 style="border-bottom: 1px solid gray">Dados Pessoa Física</h5>
+<div class="form-field">
+  <input type="text" id="cliente_pessoa_fisica_nomecompleto" name="cliente_pessoa_fisica_nomecompleto" placeholder="Nome completo"class="validate" requiredclass="validate" required />
+  <input type="text" id="cliente_pessoa_fisica_nacionalidade" name="cliente_pessoa_fisica_nacionalidade" placeholder="Nacionalidade" value="Brasileira"class="validate" requiredclass="validate" required />
+  <select name="cliente_pessoa_fisica_genero" id="cliente_pessoa_fisica_genero" class="validate" required>
+    <option value="Feminino">Feminino</option>
+    <option value="Masculino">Masculino</option>
+  </select>
+  <select name="cliente_pessoa_fisica_estadocivil" id="cliente_pessoa_fisica_estadocivil" class="validate" required>
+  <option value="solteiro">Solteiro</option>
+  <option value="casado">Casado</option>
+  <option value="união estável">União Estável</option>
+  <option value="divorciado">Divorciado</option>
+  <option value="viúvo">Viúvo</option>
+  <option value="Solteira">Solteira</option>
+  <option value="Casada">Casada</option>
+  <option value="Divorciada">Divorciada</option>
+  <option value="Viúva">Viúva</option>
+</select>
+  <input type="date" id="cliente_pessoa_fisica_data_nascimento" name="cliente_pessoa_fisica_data_nascimento"class=" validate" required />
+</div>
+<div class="form-field">
+  <input type="text" id="cliente_pessoa_fisica_telefone" name="cliente_pessoa_fisica_telefone" placeholder="Telefone" onkeyup="formatPhone(this)" class="validate" required />
+  <input type="text" id="cliente_pessoa_fisica_telefone" name="cliente_pessoa_fisica_telefone" placeholder="Telefone" onkeyup="formatPhone(this)" class="validate" required />
+  <input type="text" id="cliente_pessoa_fisica_email" name="cliente_pessoa_fisica_email" placeholder="E-mail" class="validate" required />
+  <input type="text" id="cliente_pessoa_fisica_Instagram" name="cliente_pessoa_fisica_Instagram" placeholder="Instagram" onblur="addAtSymbol('cliente_pessoa_fisica_Instagram')" class="validate" required />
+</div>
+<div class="form-field">
+  <input type="text" id="cliente_pessoa_fisica_Rua" name="cliente_pessoa_fisica_Rua" placeholder="Rua" class="validate" required />
+  <input type="text" id="cliente_pessoa_fisica_n_complemento" name="cliente_pessoa_fisica_n_complemento" placeholder="N° / Complemento" class="validate" required />
+  <input type="text" id="cliente_pessoa_fisica_bairro" name="cliente_pessoa_fisica_bairro" placeholder="Bairro" class="validate" required />
+</div>
+<div class="form-field">
+  <input type="text" id="cliente_pessoa_fisica_uf" name="cliente_pessoa_fisica_uf" placeholder="UF" class="validate" required />
+  <input type="text" id="cliente_pessoa_fisica_cidade" name="cliente_pessoa_fisica_cidade" placeholder="Cidade" class="validate" required />
+  <input type="text" id="cliente_pessoa_fisica_cep" name="cliente_pessoa_fisica_cep" placeholder="CEP" onkeyup="formatCEP(this)" class="validate" required />
+</div>
+<div class="form-field">
+    <input type="text" id="cliente_pessoa_fisica_cpf" name="cliente_pessoa_fisica_cpf" autocomplete="off" onkeyup="formatCPF(this)" placeholder="CPF" class="validate" required />
+    <select id="cliente_pessoa_fisica_tipo_doc" class="validate" name="cliente_pessoa_fisica_tipo_doc" required>
+    <option value="RG">RG</option>
+    <option value="CNH">CNH</option>
+    <option value="RNE">RNE</option>
+	</select>
+    <input type="text" id="cliente_pessoa_fisica_orgao_emissor" name="cliente_pessoa_fisica_orgao_emissor" placeholder="Orgão emissor" class="validate" required />
+    <input type="text" id="cliente_pessoa_fisica_numero_documento" name="cliente_pessoa_fisica_numero_documento" placeholder="N° DO DOCUMENTO" class="validate" required />
+  </div>
+  </form>
+  <form id="formResponsavelLegal" method="POST" enctype="multipart/form-data">
+  <h5 style="border-bottom: 1px solid gray">Dados do Responsável Legal</h5>
+  <div class="form-field">
+    <input type="text" id="cliente_pessoa_fisica_responsavel_legal_nome" name="cliente_pessoa_fisica_responsavel_legal_nome" placeholder="Nome completo" class="validate" required />
+    <input type="text" id="cliente_pessoa_fisica_responsavel_legal_nacionalidade" name="cliente_pessoa_fisica_responsavel_legal_nacionalidade" placeholder="Nacionalidade" class="validate" required />
+    <select name="cliente_pessoa_fisica_responsavel_legal_genero" id="cliente_pessoa_fisica_responsavel_legal_genero">
+      <option value="Feminino">Feminino</option>
+      <option value="Masculino">Masculino</option>
+    </select>
+    <select name="cliente_pessoa_fisica_responsavel_legal_estado_civil" id="cliente_pessoa_fisica_responsavel_legal_estado_civil">
+	<option value="solteiro">Solteiro</option>
+	<option value="casado">Casado</option>
+	<option value="união estável">União Estável</option>
+	<option value="divorciado">Divorciado</option>
+	<option value="viúvo">Viúvo</option>
+	<option value="Solteira">Solteira</option>
+	<option value="Casada">Casada</option>
+	<option value="Divorciada">Divorciada</option>
+	<option value="Viúva">Viúva</option>
+	</select>
+    <select name="cliente_pessoa_fisica_responsavel_legal_parentesco" id="cliente_pessoa_fisica_responsavel_legal_parentesco">
+      <option value="Pai">Pai</option>
+      <option value="Mãe">Mãe</option>
+      <option value="Outro">Outro</option>
+    </select>
+  </div>
+  <div class="form-field">
+    <input type="text" id="cliente_pessoa_fisica_responsavel_legal_telefone" name="cliente_pessoa_fisica_responsavel_legal_telefone" placeholder="Telefone" onkeyup="formatPhone(this)" class="validate" required />
+    <input type="text" id="cliente_pessoa_fisica_responsavel_legal_email" name="cliente_pessoa_fisica_responsavel_legal_email" placeholder="E-mail" class="validate" required />
+  </div>
+  <div class="form-field">
+    <input type="text" id="cliente_pessoa_fisica_responsavel_legal_rua" name="cliente_pessoa_fisica_responsavel_legal_rua" placeholder="Rua" class="validate" required />
+    <input type="text" id="cliente_pessoa_fisica_responsavel_legal_n_complemento" name="cliente_pessoa_fisica_responsavel_legal_n_complemento" placeholder="Complemento" class="validate" required />
+	<input type="text" id="cliente_pessoa_fisica_responsavel_legal_bairro" name="cliente_pessoa_fisica_responsavel_legal_bairro" placeholder="Bairro" class="validate" required />
+  </div>
+  <div class="form-field">
+    <input type="text" id="cliente_pessoa_fisica_responsavel_legal_cidade" name="cliente_pessoa_fisica_responsavel_legal_cidade" placeholder="Cidade" class="validate" required />
+    <input type="text" id="cliente_pessoa_fisica_responsavel_legal_uf" name="cliente_pessoa_fisica_responsavel_legal_uf" placeholder="UF" class="validate" required />
+	<input type="text" id="cliente_pessoa_fisica_responsavel_legal_cep" name="cliente_pessoa_fisica_responsavel_legal_cep" placeholder="CEP" onkeyup="formatCEP(this)" class="validate" required />
+  </div>
+  <div class="form-field">
+    <input type="text" id="cliente_pessoa_fisica_responsavel_legal_cpf" name="cliente_pessoa_fisica_responsavel_legal_cpf" autocomplete="off" onkeyup="formatCPF(this)" placeholder="CPF" class="validate" required />
+    <select id="cliente_pessoa_fisica_responsavel_legal_tipo_documento">
+      <option value="RG">RG</option>
+      <option value="CNH">CNH</option>
+      <option value="RNE">RNE</option>
+    </select>
+    <input type="text" id="cliente_pessoa_fisica_responsavel_legal_orgao_emissor" name="cliente_pessoa_fisica_responsavel_legal_orgao_emissor" placeholder="Orgão emissor" class="validate" required />
+    <input type="text" id="cliente_pessoa_fisica_responsavel_legal_numero_documento" name="cliente_pessoa_fisica_responsavel_legal_numero_documento" placeholder="N° DO DOCUMENTO" class="validate" required />
+  </div>
+</div>
+</form>
+  <form id="formEmpresa" method="POST" enctype="multipart/form-data">
+  <h5 style="border-bottom: 1px solid gray">Dados da Empresa</h5>
+  <div class="form-field">
+    <input type="text" id="cliente_empresa_cnpj" autocomplete="off"  placeholder="CNPJ" class="validate" required />
+    <input type="text" id="cliente_empresa_razao_social"  placeholder="Razão Social" class="validate" required />
+    <input type="text" id="situaçãocnpj" placeholder="Situação CNPJ" class="validate" required />
+  </div>
+  <div class="form-field">
+    <input type="date" id="cliente_empresa_data_abertura" />
+    <input type="text" id="cliente_empresa_natureza_juridica"  placeholder="Natureza Jurídica" class="validate" required />
+    <input type="number" id="cliente_empresa_capital_social"  placeholder="Capital Social" class="validate" required />
+  </div>
+  <div class="form-field">
+    <input type="text" id="cliente_empresa_telefone" placeholder="Telefone" onkeyup="formatPhone(this)" class="validate" required />
+    <input type="text" id="cliente_empresa_email"  placeholder="E-mail" class="validate" required />
+    <input type="text" id="cliente_empresa_Instagram" placeholder="Instagram" onblur="addAtSymbol('cliente_empresa_Instagram')" class="validate" required />
+  </div>
+  <div class="form-field">
+    <input type="text" id="cliente_empresa_rua"  placeholder="Rua" class="validate" required />
+    <input type="text" id="cliente_empresa_n_complemento"  placeholder="N° / Complemento" class="validate" required />
+    <input type="text" id="cliente_empresa_bairro"  placeholder="Bairro" class="validate" required />
+  </div>
+  <div class="form-field">
+    <input type="text" id="cliente_empresa_uf"  placeholder="UF" class="validate" required />
+    <input type="text" id="cliente_empresa_cidade"  placeholder="Cidade" class="validate" required />
+    <input type="text" id="cliente_empresa_cep"  placeholder="CEP" onkeyup="formatCEP(this)" class="validate" required />
+  </div>
+</div>
+</form>
+<div class="form-field">
+  <button id="enviarFormularios" type="button">Enviar</button>
+  <button type="reset" class="btn-limpar">Limpar</button>
+  <button type="button" class="btn-Fechar">Fechar</button>
+</div>
+
+
+<form class="hidden" id="form-consulta">
+    <h1>Consulta de Clientes</h1>
+    <div class="form-field">
+  <input type="text" id="consulta_nome_razao_social" placeholder="Nome / Razão Social" class="validate" required />
+  <input type="text" id="consulta_cpf_cnpj" placeholder="CPF / CNPJ" class="validate" required />
+  </div>
+<div class="form-field">
+  <select id="consulta_genero">
+    <option selected disabled>Gênero</option>
+    <option>Feminino</option>
+    <option>Masculino</option>
+  </select>
+  <input type="number" id="consulta_idade_minima" placeholder="Idade Mínima" class="validate" required />
+  <input type="number" id="consulta_idade_maxima" placeholder="Idade Máxima" class="validate" required />
+    <input type="number" id="consulta_ano_nascimento_minimo" placeholder="Ex: 1990" class="validate" required />
+    <input type="number" id="consulta_ano_nascimento_maximo" placeholder="Ex: 2000" class="validate" required />
+  <select id="consulta_mes_inicial">
+	<option selected disabled>Mês inicial</option>
+    <option value="01">Janeiro</option>
+    <option value="02">Fevereiro</option>
+    <option value="03">Março</option>
+    <option value="04">Abril</option>
+    <option value="05">Maio</option>
+    <option value="06">Junho</option>
+    <option value="07">Julho</option>
+    <option value="08">Agosto</option>
+    <option value="09">Setembro</option>
+    <option value="10">Outubro</option>
+    <option value="11">Novembro</option>
+    <option value="12">Dezembro</option>
+  </select>
+  <select id="consulta_mes_fim">
+	<option selected disabled>Mês f</option>
+    <option value="01">Janeiro</option>
+    <option value="02">Fevereiro</option>
+    <option value="03">Março</option>
+    <option value="04">Abril</option>
+    <option value="05">Maio</option>
+    <option value="06">Junho</option>
+    <option value="07">Julho</option>
+    <option value="08">Agosto</option>
+    <option value="09">Setembro</option>
+    <option value="10">Outubro</option>
+    <option value="11">Novembro</option>
+    <option value="12">Dezembro</option>
+  </select>
+    </div>
+    <div class="form-field">
+        <input type="text" id="consulta_email" placeholder="E-mail" class="validate" required />
+        <input type="text" id="consulta_telefone" placeholder="Telefone" onkeyup="formatPhone(this)" class="validate" required />
+    </div>
+  <div class="form-field">
+    <input type="text" id="consulta_Rua" placeholder="Rua" class="validate" required />
+    <input type="text" id="consulta_n_complemento" placeholder="N° / Complemento" class="validate" required />
+    <input type="text" id="consulta_bairro" placeholder="Bairro" class="validate" required />
+  </div>
+  <div class="form-field">
+    <input type="text" id="consulta_uf" placeholder="UF" class="validate" required />
+    <input type="text" id="consulta_cidade" placeholder="Cidade" class="validate" required />
+	<input type="text" id="consulta_cep" placeholder="CEP" onkeyup="formatCEP(this)" class="validate" required />
+  </div>
+    <div class="form-field">
+  <button type="submit" class="btn-pesquisar">Pesquisar</button>
+  <button type="button" class="btn-Fechar-consulta">Fechar</button>
+</div>
+	</form>
+    </main>
+    <footer>
+        <object type="text/html" data="../../Footer/footer.html" width="100%" height="100%"></object>
+    </footer>
+	<script src="../../../scripts/JS/main.js"></script>
+	<script src="../../../scripts/JS/cadastro_cliente/atualizacao_dinamica_formulario_cliente.js"></script>
+	<script src="../../../scripts/JS/cadastro_cliente/cadastro_cliente.js"></script>
+	<script src="../../../scripts/JS/cadastro_cliente/formatacao_campos_formulario_cliente.js"></script>,
+	<script src="../../../scripts/JS/cadastro_cliente/preencher_formulario_cliente.js"></script>
+</body>
+</html>
