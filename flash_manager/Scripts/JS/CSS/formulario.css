@@ -1,0 +1,180 @@
+.form-field {
+display: flex;
+justify-content: center;
+margin-bottom: 10px;
+flex-wrap: wrap;
+width: 100%;
+}
+
+.form-field label {
+margin-right: 10px;
+}
+
+.form-field button {
+  margin-right: 10px;
+}
+
+.form-field input[type="text"],
+.form-field input[type="number"],
+.form-field input[type="date"],
+.form-field select {
+background-color: transparent;
+transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+border: 1px solid #ccc;
+font-size: 16px;
+border-radius: 4px;
+height: 25px;
+margin: 0 5px;
+padding: 5px;
+flex: 1;
+text-align: center;
+transition: border-color 0.2s ease-in-out;
+}
+
+.form-field input[type="text"]:focus,
+.form-field input[type="number"]:focus,
+.form-field input[type="date"]:focus,
+.form-field select:focus {
+border-color: #4a90e2;
+outline: none;
+}
+.form-field select:invalid {
+border-color: #e74c3c;
+}
+
+.form-field select {
+height: 36px;
+}
+
+.container-principal {
+display: flex;
+justify-content: center;
+}
+
+.container-botoes {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.required {
+color: red;
+}
+
+/* Media query para ajustar o formulário */
+@media (max-width: 480px) {
+.form-field {
+flex-direction: column;
+align-items: center;
+}
+
+.form-field label {
+margin-right: 0;
+margin-bottom: 5px;
+}
+
+.form-field input[type="text"],
+.form-field input[type="number"],
+.form-field input[type="date"],
+.form-field select {
+width: 100%;
+margin-bottom: 10px;
+box-sizing: border-box;
+}
+
+/* Adicione essa regra para remover a margem do último campo */
+.form-field input[type="text"]:last-child,
+.form-field input[type="number"]:last-child,
+.form-field input[type="date"]:last-child,
+.form-field select:last-child {
+margin-bottom: 0;
+}
+}
+
+/* Media query para ajustar o layout geral e tipografia */
+@media (max-width: 480px) {
+body {
+font-size: 14px;
+}
+
+header {
+padding: 15px;
+}
+
+nav {
+padding: 8px;
+}
+
+main {
+padding: 15px;
+}
+
+.event-form-title, h2.agenda-title {
+font-size: 24px;
+margin-bottom: 15px;
+}
+
+.add-event-btn-container {
+margin-bottom: 15px;
+}
+}
+
+/* Media query para ajustar a navegação */
+@media (max-width: 480px) {
+nav ul {
+flex-direction: column;
+}
+
+nav ul li a {
+text-align: center;
+padding: 8px 0;
+}
+
+.submenu {
+position: static;
+background-color: transparent;
+}
+
+.submenu li a {
+padding: 4px 0;
+color: rgba(255, 255, 255, 0.7);
+}
+}
+
+h1 {
+  font-size: 32px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.success {
+  color: green;
+  font-weight: bold;
+}
+
+.notification {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .notification.success {
+      background-color: #4caf50;
+      color: white;
+    }
+    .notification.error {
+      background-color: #f44336;
+      color: white;
+    }
+
