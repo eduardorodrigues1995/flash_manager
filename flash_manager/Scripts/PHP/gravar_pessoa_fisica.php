@@ -78,6 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   // Envie a resposta JSON
-  header('Content-Type: application/json');
-  echo json_encode(['sucesso' => $registroInserido, 'mensagem' => $msg]);
+  try {
+    header('Content-Type: application/json');
+    echo json_encode(['sucesso' => $registroInserido, 'mensagem' => $msg]);
+  } catch (Exception $e) {
+    // Se ocorrer um erro ao codificar a resposta para JSON, retorne uma resposta de erro
+    header('Content-Type: application/json');
+    echo json_encode(['sucesso' => false, 'mensagem' => 'Erro ao codificar a resposta para JSON']);
+  }
 }
