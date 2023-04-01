@@ -1,3 +1,4 @@
+// Função para lidar com erros em todas as solicitações fetch
 function handleErrors(response) {
   if (!response.ok) {
     throw new Error(response.statusText);
@@ -11,16 +12,14 @@ fetch("http://localhost/flash_manager/scripts/PHP/gravar_pessoa_fisica.php", {
   method: "POST",
   body: formDataPessoaFisica,
 })
-  .then(function(response) {
-    return response.json(); // Altera a resposta para um JSON
-  })
-  .then(function(json) {
-    console.log("JSON obtido com sucesso:", json);
+  .then(handleErrors)
+  .then(function(responseData) {
+    console.log("Formulário Pessoa Física enviado com sucesso:", responseData);
+    // Adicione uma mensagem de confirmação aqui, se necessário
   })
   .catch(function(error) {
     console.error("Erro ao enviar o formulário Pessoa Física:", error);
-    console.error("Mensagem do erro:", error.message);
-    console.error("Pilha de chamadas:", error.stack);
+    // Exiba uma mensagem de erro ao usuário de forma adequada
   });
 
 // Enviar o formulário Responsável Legal
@@ -29,14 +28,14 @@ fetch("http://localhost/flash_manager/scripts/PHP/gravar_responsavel_legal.php",
   method: "POST",
   body: formDataResponsavelLegal,
 })
-  .then((response) => response.json())
-  .then(function(data) {
-    console.log("Formulário Responsável Legal enviado com sucesso:", data);
+  .then(handleErrors)
+  .then(function(responseData) {
+    console.log("Formulário Responsável Legal enviado com sucesso:", responseData);
+    // Adicione uma mensagem de confirmação aqui, se necessário
   })
   .catch(function(error) {
     console.error("Erro ao enviar o formulário Responsável Legal:", error);
-    console.error("Mensagem do erro:", error.message);
-    console.error("Pilha de chamadas:", error.stack);
+    // Exiba uma mensagem de erro ao usuário de forma adequada
   });
 
 // Enviar o formulário Empresa
@@ -45,17 +44,12 @@ fetch("http://localhost/flash_manager/scripts/PHP/gravar_empresa.php", {
   method: "POST",
   body: formDataEmpresa,
 })
-  .then(function(response) {
-    if (!response.ok) {
-      throw new Error("Erro ao enviar o formulário Empresa: " + response.statusText);
-    }
-    return response.json();
-  })
-  .then(function(data) {
-    console.log("Formulário Empresa enviado com sucesso:", data);
+  .then(handleErrors)
+  .then(function(responseData) {
+    console.log("Formulário Empresa enviado com sucesso:", responseData);
+    // Adicione uma mensagem de confirmação aqui, se necessário
   })
   .catch(function(error) {
     console.error("Erro ao enviar o formulário Empresa:", error);
-    console.error("Mensagem do erro:", error.message);
-    console.error("Pilha de chamadas:", error.stack);
+    // Exiba uma mensagem de erro ao usuário de forma adequada
   });
